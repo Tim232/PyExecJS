@@ -1,14 +1,8 @@
 PyExecJS (EOL)
 ==============
-[![Build Status](https://travis-ci.org/doloopwhile/PyExecJS.svg?branch=travis-ci)](https://travis-ci.org/doloopwhile/PyExecJS)
+[![Build Status](https://travis-ci.org/Tim232/PyExecJS.svg?branch=travis-ci)](https://travis-ci.org/Tim232/PyExecJS)
 
-# End of life
-
-This library is no longer maintananced ([Reason](https://gist.github.com/doloopwhile/8c6ec7dd4703e8a44e559411cb2ea221)).
-Bugs are not be fixed (even if they are trivial or essential).
-
-We suggest to use other library or to make a fork.
-
+[EOL](https://gist.github.com/doloopwhile/8c6ec7dd4703e8a44e559411cb2ea221)
 ---
 
 Run JavaScript code from Python.
@@ -18,16 +12,18 @@ PyExecJS **automatically** picks the best runtime available to evaluate your Jav
 
 A short example:
 
-    >>> import execjs
-    >>> execjs.eval("'red yellow blue'.split(' ')")
-    ['red', 'yellow', 'blue']
-    >>> ctx = execjs.compile("""
-    ...     function add(x, y) {
-    ...         return x + y;
-    ...     }
-    ... """)
-    >>> ctx.call("add", 1, 2)
-    3
+```python
+import execjs
+execjs.eval("'red yellow blue'.split(' ')")
+>>> ['red', 'yellow', 'blue']
+ctx = execjs.compile("""
+     function add(x, y) {
+         return x + y;
+     }
+ """)
+ ctx.call("add", 1, 2)
+ >>> 3
+ ```
 
 # Supported runtimes
 
@@ -48,10 +44,6 @@ A short example:
 # Installation
 
     $ pip install PyExecJS
-
-or
-
-    $ easy_install PyExecJS
 
 # Details
 
@@ -84,61 +76,7 @@ The other cons is that it does not fully support runtime specific features.
 
 [PyV8](https://code.google.com/p/pyv8/) might be better choice for some use case.
 
-# License
-
-Copyright (c) 2016 Omoto Kenji.
-Copyright (c) 2011 Sam Stephenson and Josh Peek. (As a author of ExecJS)
-
-Released under the MIT license. See `LICENSE` for details.
-
 # Changelog
-
-## 1.5.0
-- Eased version requirement for six.
-
-## 1.4.1
-- Fixed arguments of module-level functions.
-- Fixed bug of execution with pipe.
-- Fixed wrong excption is raised.
-
-## 1.4.0
-- Fixed required libraries.
-- Fixed order of output of `--print-available-runtimes`.
-- Execute some JavaScript runtime with pipe/stdin (without temporary file).
-
-## 1.3.1
-- Fixed `--print-available-runtimes` fails in Python 2.7.
-
-## 1.3.0
-- Added `cwd` argument.
-
-## 1.2.0
-- Supported Python 3.5
-- Supported Nashorn(Java 8 JavaScript engine) as runtime
-- Dropped support for Python 2.6 and 3.2
-
-## 1.1.0
-- Supported Python 3.4
-- Supported SlimerJS as runtime
-- Supported PhantomJS as runtime
-- Fixed JScript runtime on Windows 8
-
-## 1.0.5
-- Supported Python 3.3
-- Fixed file handle leaking
-- Fixed issue with passenger-nginx-4.0
-
-## 1.0.4
-- Removed "import execjs" (it prevent execution of setup.py by Python 2.6)
-
-## 1.0.3
-- Javascript sources were embeded in __init__.py. 'which' command were reimplemented by pure python.
-
-## 1.0.2
-- Python 2.6.x was supported.
-
-## 1.0.1
-- Forgotten shell=True was added to Popen.
 
 ## 1.0.0
 - First release.
